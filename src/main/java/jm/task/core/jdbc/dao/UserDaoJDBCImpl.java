@@ -20,7 +20,7 @@ public class UserDaoJDBCImpl implements UserDao {
         try (Connection conn = Util.getMySQLConnection();
              Statement stmt = conn.createStatement();
         ) {
-            String sql = "CREATE TABLE USERS " +
+            String sql = "CREATE TABLE IF NOT EXISTS USERS " +
                     "(id INTEGER not NULL AUTO_INCREMENT, " +
                     " name VARCHAR(255), " +
                     " lastName VARCHAR(255), " +
@@ -28,7 +28,7 @@ public class UserDaoJDBCImpl implements UserDao {
                     " PRIMARY KEY ( id ))";
             stmt.executeUpdate(sql);
         } catch (SQLException | ClassNotFoundException e) {
-            System.out.println("Что-то пошло не так...");
+            System.out.println("Что-то пошло не так..." + e.getMessage());
         };
     }
 
