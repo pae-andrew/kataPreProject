@@ -2,15 +2,12 @@ package jm.task.core.jdbc.dao;
 
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
-import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;
 
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class UserDaoHibernateImpl implements UserDao {
 
@@ -59,7 +56,6 @@ public class UserDaoHibernateImpl implements UserDao {
             session.getTransaction().commit();
             System.out.println("User с именем – " + name + " добавлен в базу данных");
         }
-
     }
 
     @Override
